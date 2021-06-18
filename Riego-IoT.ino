@@ -102,27 +102,3 @@ void loop()
   // thingspeak necesita minimo 15 seg de retraso para las actualizaciones
   delay(1000);                        
 }
-
-                             postStr += String(t);
-                             postStr += "\r\n\r\n";
- 
-                             client.print("POST /update HTTP/1.1\n");
-                             client.print("Host: api.thingspeak.com\n");
-                             client.print("Connection: close\n");
-                             client.print("X-THINGSPEAKAPIKEY: "+apiKey+"\n");
-                             client.print("Content-Type: application/x-www-form-urlencoded\n");
-                             client.print("Content-Length: ");
-                             client.print(postStr.length());
-                             client.print("\n\n");
-                             client.print(postStr);
- 
-                             Serial.print("Humedad del aire: ");
-                             Serial.print(h);
-                             Serial.print(" Temperatura aire: ");
-                             Serial.print(t);
-                             Serial.println("%. Enviado a Thingspeak.");                          
-                        }
-          client.stop();
-          Serial.println("Esperando...");
-  delay(1000);                        
-}
