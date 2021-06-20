@@ -1,16 +1,21 @@
 #include <ESP8266WiFi.h>
 #include <DHT.h>
+#define sensorPin D6 
+#define rainPin D5
 #define DHTPIN 2    
 #define DHTTYPE DHT11  
 char ssid[] = "RHUTEC";                        //Nombre WiFi 
 char pass[] = "Cloclo**1998";                  //Contraseña WiFi
 const char* server = "api.thingspeak.com";     //Servidor ThingSpeak
 String apiKey = "T9VMRVYDXWLXXJQV";            //Llave publica ThingSpeak
-WiFiClient client; //
+WiFiClient client; //              
                   
-int pinValue;                   
 
 int sensorState = 0;
+int rainState = 0;
+int lastState = 0;
+int lastRainState = 0;
+
 int sensor=0;
 
 DHT dht(DHTPIN, DHTTYPE);
@@ -29,6 +34,8 @@ void sendSensor()
 }
 void setup()
 {
+  pinMode(sensorPin, INPUT);
+  pinMode(rainPin, INPUT);
   dht.begin();
   
   Serial.println("Conectando a...  ");
@@ -58,9 +65,43 @@ void sendTemps()
 void loop()
 {
   sendTemps();
+  sensorState = digitalRead(sensorPin);
   Serial.println(sensorState);
+if (sensorState == 1 && lastState == 0) {
+  Serial.println("Enviar notificacion, necesita agua");
+  lastState = 1;
+  delay(1000);
+//Enviar notificación 
+    
+  } 
+  else if (sensorState == 1 && lastState == 1) {
+    //No hacer nada, no ha sido regado todavia
+  Serial.println("No ha sido regado todavia");
+  delay(1000);
+  }
+  else {
+    Serial.println("No necesita agua");
+    lastState = 0;
+    delay(1000);
+  }
 
-  delay(100);
+  rainState = digitalRead(rainPin);
+  Serial.println(rainState);
+
+  if (rainState == 0 && lastRainState == 0) {
+  Serial.println("Esta lloviendo!");
+  lastRainState = 1;
+  delay(1000);
+  }
+//Enviar notificacion
+  else if (rainState == 0 && lastRainState == 1) {
+  delay(1000);
+  }
+  else {
+    Serial.println("No esta lloviendo");
+    lastRainState = 0;
+    delay(1000);
+  }
 
   float h = dht.readHumidity();
   float t = dht.readTemperature();
