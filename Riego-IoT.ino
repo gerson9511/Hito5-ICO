@@ -1,5 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <DHT.h>
+#include <SimpleTimer.h>
+#define ONE_WIRE_BUS D2
+#define pirPin D1
 #define sensorPin D6 
 #define rainPin D5
 #define DHTPIN 2    
@@ -9,7 +12,9 @@ char pass[] = "Cloclo**1998";                  //Contraseña WiFi
 const char* server = "api.thingspeak.com";     //Servidor ThingSpeak
 String apiKey = "T9VMRVYDXWLXXJQV";            //Llave publica ThingSpeak
 WiFiClient client; //              
-                  
+
+int pirValue;                   
+int pinValue;
 
 int sensorState = 0;
 int rainState = 0;
@@ -19,6 +24,7 @@ int lastRainState = 0;
 int sensor=0;
 
 DHT dht(DHTPIN, DHTTYPE);
+SimpleTimer timer;
 
 const int sensor_pin = A0;
 
@@ -36,6 +42,7 @@ void setup()
 {
   pinMode(sensorPin, INPUT);
   pinMode(rainPin, INPUT);
+  pinMode(pirPin, INPUT);
   dht.begin();
   
   Serial.println("Conectando a...  ");
@@ -62,8 +69,19 @@ void sendTemps()
   delay(1000);
 }
 
+void getPirValue(void)        //Obtener Datos del Sensor PIR
+  {
+   pirValue = digitalRead(pirPin);
+    if (pirValue) 
+     { 
+       Serial.println("Movimiento Detectado");
+       Blynk.notify("Movimiento Detectado");  
+     }
+  }
+
 void loop()
 {
+  timer.run(); 
   sendTemps();
   sensorState = digitalRead(sensorPin);
   Serial.println(sensorState);
@@ -102,6 +120,10 @@ if (sensorState == 1 && lastState == 0) {
     lastRainState = 0;
     delay(1000);
   }
+  if (pinValue == HIGH)    
+      {
+        getPirValue();
+      }
 
   float h = dht.readHumidity();
   float t = dht.readTemperature();
@@ -115,6 +137,8 @@ if (sensorState == 1 && lastState == 0) {
                              postStr += String(t);
                              postStr +="&field3=";
                              postStr += String(sensor);
+                             postStr +="&field4=";
+                             postStr += String(pinValue);
                              postStr += "\r\n\r\n";
  
                              client.print("POST /update HTTP/1.1\n");
@@ -133,6 +157,8 @@ if (sensorState == 1 && lastState == 0) {
                              Serial.print(t);
                              Serial.print(" Humedad del Suelo: ");
                              Serial.print(sensor);
+                             Serial.print(" Valor PIR: ");
+                             Serial.print(pinValue);
                              Serial.println("%. Enviado a Thingspeak.");
                              
                         }
