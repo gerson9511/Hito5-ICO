@@ -6,6 +6,7 @@ Materiales
 Hardware
 - Node MCU
 - Sensor DHT11
+- Sensor YL69
 - Protoboard
 - Jumpers
 - Cable tipo B
@@ -25,10 +26,14 @@ Procedimiento
 
 4. Realizar un Esquema de maquetación del Circuito
 
-![image](https://user-images.githubusercontent.com/45986551/122449307-b7fe0a00-cf73-11eb-84af-e8774fb1ff3c.png)
+![image](https://user-images.githubusercontent.com/45986551/122693844-7e463100-d209-11eb-8644-ea261c584a4b.png)
 
 5. Conectar todos los componentes en el Protoboard
 6. Programar el codigo para la adquisicion de datos en tiempo real a atraves de la plataforma ThingSpeak
 7. Crear un canal en ThingSpeak 
-8. Definir las variables que se obtendra la información (Humedad del Aire y Temperatura del Aire)
+
+![image](https://user-images.githubusercontent.com/45986551/122694038-222fdc80-d20a-11eb-8f52-d12ea49fc9c2.png)
+
+8. Definir las variables que se obtendra la información (Humedad del Aire y Temperatura del Aire, Humedad del suelo)
 9. Cargar el codigo en Node MCU
+
