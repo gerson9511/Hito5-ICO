@@ -7,6 +7,7 @@ Hardware
 - Node MCU
 - Sensor DHT11
 - Sensor YL69
+- Sensor PIR
 - Protoboard
 - Jumpers
 - Cable tipo B
@@ -26,7 +27,7 @@ Procedimiento
 
 4. Realizar un Esquema de maquetación del Circuito
 
-![image](https://user-images.githubusercontent.com/45986551/122693844-7e463100-d209-11eb-8644-ea261c584a4b.png)
+![image](https://user-images.githubusercontent.com/45986551/122698773-ff0b2a00-d215-11eb-8f15-bffc0224f5eb.png)
 
 5. Conectar todos los componentes en el Protoboard
 6. Programar el codigo para la adquisicion de datos en tiempo real a atraves de la plataforma ThingSpeak
@@ -34,6 +35,6 @@ Procedimiento
 
 ![image](https://user-images.githubusercontent.com/45986551/122694038-222fdc80-d20a-11eb-8f52-d12ea49fc9c2.png)
 
-8. Definir las variables que se obtendra la información (Humedad del Aire y Temperatura del Aire, Humedad del suelo)
+8. Definir las variables que se obtendra la información (Humedad del Aire y Temperatura del Aire, Humedad del suelo, Sensor de movimiento )
 9. Cargar el codigo en Node MCU
 
