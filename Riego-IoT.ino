@@ -1,5 +1,7 @@
 #include <ESP8266WiFi.h>
 #include <DHT.h>
+#define BLYNK_PRINT Serial
+#include <BlynkSimpleEsp8266.h>
 #include <SimpleTimer.h>
 #define ONE_WIRE_BUS D2
 #define pirPin D1
@@ -7,6 +9,7 @@
 #define rainPin D5
 #define DHTPIN 2    
 #define DHTTYPE DHT11  
+char auth[] = "twwgkR7jNi09H6EHM87AGO35dVm4Uu5m";   //Llave Blynk
 char ssid[] = "RHUTEC";                        //Nombre WiFi 
 char pass[] = "Cloclo**1998";                  //Contraseña WiFi
 const char* server = "api.thingspeak.com";     //Servidor ThingSpeak
@@ -28,6 +31,11 @@ SimpleTimer timer;
 
 const int sensor_pin = A0;
 
+BLYNK_WRITE(V0)
+{
+ pinValue = param.asInt();    
+}
+
 void sendSensor()
 {
   float h = dht.readHumidity();
@@ -37,9 +45,13 @@ void sendSensor()
     Serial.println("No se pudo leer los datos del Sensor DH11");
     return;
   }
+   
+  Blynk.virtualWrite(V5, h);  //V5 Humedad
+  Blynk.virtualWrite(V6, t);  //V6 Temperatura
 }
 void setup()
 {
+  Blynk.begin(auth, ssid, pass);
   pinMode(sensorPin, INPUT);
   pinMode(rainPin, INPUT);
   pinMode(pirPin, INPUT);
@@ -66,6 +78,7 @@ void sendTemps()
 {
   sensor=analogRead(A0); 
   Serial.println(sensor);
+  Blynk.virtualWrite(V2,sensor);
   delay(1000);
 }
 
@@ -81,12 +94,15 @@ void getPirValue(void)        //Obtener Datos del Sensor PIR
 
 void loop()
 {
+  Blynk.run(); 
   timer.run(); 
   sendTemps();
   sensorState = digitalRead(sensorPin);
   Serial.println(sensorState);
+  
 if (sensorState == 1 && lastState == 0) {
   Serial.println("Enviar notificacion, necesita agua");
+  Blynk.notify("Riega tus plantas");
   lastState = 1;
   delay(1000);
 //Enviar notificación 
