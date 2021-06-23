@@ -71,6 +71,9 @@ Alerta de Riego
 
 ![image](https://user-images.githubusercontent.com/45986551/122848212-18c07600-d2d7-11eb-9652-6114eddd4e13.png)
 
+Ubicacion de los sensores con Api de google Maps
+
+![image](https://user-images.githubusercontent.com/45986551/123174867-d326b900-d44e-11eb-8675-21e265ba9378.png)
 
 
 
