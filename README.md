@@ -63,12 +63,9 @@ Muestreo de datos en Blynk
 
 ![image](https://user-images.githubusercontent.com/45986551/122848146-f75f8a00-d2d6-11eb-9d1a-82c9640f57e8.png)
 
-Alerta de movimiento 
+Alerta de movimiento y Alerta de Riego
 
 ![image](https://user-images.githubusercontent.com/45986551/122848207-13632b80-d2d7-11eb-9c1b-9468a024a79d.png)
-
-Alerta de Riego
-
 ![image](https://user-images.githubusercontent.com/45986551/122848212-18c07600-d2d7-11eb-9652-6114eddd4e13.png)
 
 Ubicacion de los sensores con Api de google Maps
@@ -78,6 +75,13 @@ Ubicacion de los sensores con Api de google Maps
 Video de YouTube en ThingSpeak
 
 ![image](https://user-images.githubusercontent.com/45986551/123175724-3c5afc00-d450-11eb-9926-708ecfec8215.png)
+
+Adquisicion de datos de los sensores en ThingSpeak
+![image](https://user-images.githubusercontent.com/45986551/123175909-95c32b00-d450-11eb-9749-fbc861351041.png)
+![image](https://user-images.githubusercontent.com/45986551/123175936-9f4c9300-d450-11eb-81f3-924c11c4857d.png)
+![image](https://user-images.githubusercontent.com/45986551/123175961-a83d6480-d450-11eb-8d65-c342825e9741.png)
+![image](https://user-images.githubusercontent.com/45986551/123176040-c86d2380-d450-11eb-9377-1d36233c155f.png)
+
 
 
 
