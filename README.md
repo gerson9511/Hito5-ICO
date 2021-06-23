@@ -72,17 +72,34 @@ Ubicacion de los sensores con Api de google Maps
 
 ![image](https://user-images.githubusercontent.com/45986551/123174867-d326b900-d44e-11eb-8675-21e265ba9378.png)
 
-Video de YouTube en ThingSpeak
+Video de YouTube en ThingSpeak https://www.youtube.com/watch?v=RDdttJ80TDU
 
 ![image](https://user-images.githubusercontent.com/45986551/123175724-3c5afc00-d450-11eb-9926-708ecfec8215.png)
 
 Adquisicion de datos de los sensores en ThingSpeak
+
 ![image](https://user-images.githubusercontent.com/45986551/123175909-95c32b00-d450-11eb-9749-fbc861351041.png)
 ![image](https://user-images.githubusercontent.com/45986551/123175936-9f4c9300-d450-11eb-81f3-924c11c4857d.png)
 ![image](https://user-images.githubusercontent.com/45986551/123175961-a83d6480-d450-11eb-8d65-c342825e9741.png)
 ![image](https://user-images.githubusercontent.com/45986551/123176040-c86d2380-d450-11eb-9377-1d36233c155f.png)
 
+Control por voz Con IFTTT Google Assistant y Active Voice 
 
+Ingresar a la plataforma de IFTTT crearse una cuenta y loguearse con Google, 
+
+![1](https://user-images.githubusercontent.com/45986551/123176494-8a243400-d451-11eb-9a41-c0025876158e.JPG)
+![2](https://user-images.githubusercontent.com/45986551/123176496-8b556100-d451-11eb-8bde-8d9bee31382a.JPG)
+![3](https://user-images.githubusercontent.com/45986551/123176501-8d1f2480-d451-11eb-9bba-e23023620590.JPG)
+![5](https://user-images.githubusercontent.com/45986551/123176503-8ee8e800-d451-11eb-9822-8e4ce0e6302d.JPG)
+![6](https://user-images.githubusercontent.com/45986551/123176510-90b2ab80-d451-11eb-8867-04d448dd0e26.JPG)
+![7](https://user-images.githubusercontent.com/45986551/123176514-93150580-d451-11eb-86ba-e7929938cf2c.JPG)
+![8](https://user-images.githubusercontent.com/45986551/123176520-94463280-d451-11eb-80a0-d8a33e05e65e.JPG)
+![9](https://user-images.githubusercontent.com/45986551/123176522-960ff600-d451-11eb-98fa-9922c5b1dd61.JPG)
+![10](https://user-images.githubusercontent.com/45986551/123176528-98725000-d451-11eb-9360-b1fe9769e852.JPG)
+![11](https://user-images.githubusercontent.com/45986551/123176534-9c9e6d80-d451-11eb-8dda-43f4b36911ad.JPG)
+![12](https://user-images.githubusercontent.com/45986551/123176541-9e683100-d451-11eb-80b4-5afc7d4a1185.JPG)
+![13](https://user-images.githubusercontent.com/45986551/123176542-9f995e00-d451-11eb-908d-0b9823223584.JPG)
+![14](https://user-images.githubusercontent.com/45986551/123176545-a0ca8b00-d451-11eb-9ca7-0fafb4b4f4b4.JPG)
 
 
 
